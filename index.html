@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Giới thiệu bản thân</title>
+  <meta name="description" content="Portfolio – Full-stack Developer: CRM, IoT sạc xe điện, chứng khoán, livestream AI, affiliate." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --surface: #ffffff;
+      --surface-2: #f0f0ec;
+      --text: #17181a;
+      --muted: #5f636b;
+      --border: #e3e3de;
+      --accent: #2f5bea;
+      --accent-soft: #e6ecfd;
+      --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.05);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0f1113;
+        --surface: #171a1d;
+        --surface-2: #1f2327;
+        --text: #eceef0;
+        --muted: #9aa1aa;
+        --border: #2a2f34;
+        --accent: #7c9cff;
+        --accent-soft: #1c2647;
+        --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #0f1113;
+      --surface: #171a1d;
+      --surface-2: #1f2327;
+      --text: #eceef0;
+      --muted: #9aa1aa;
+      --border: #2a2f34;
+      --accent: #7c9cff;
+      --accent-soft: #1c2647;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Be Vietnam Pro", system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    /* Header */
+    header.nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+    .brand { font-weight: 700; text-decoration: none; letter-spacing: -.01em; }
+    .nav ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+    .nav ul a { text-decoration: none; color: var(--muted); font-size: 14px; font-weight: 500; }
+    .nav ul a:hover { color: var(--text); }
+    .theme-btn {
+      border: 1px solid var(--border); background: var(--surface); color: var(--text);
+      width: 36px; height: 36px; border-radius: 10px; cursor: pointer; font-size: 16px;
+      display: grid; place-items: center;
+    }
+    @media (max-width: 640px) { .nav ul { display: none; } }
+
+    /* Hero */
+    .hero { padding: 88px 0 64px; }
+    .hero-grid { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; font-weight: 500; color: var(--accent);
+      background: var(--accent-soft); padding: 5px 12px; border-radius: 999px;
+    }
+    .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.1; letter-spacing: -.025em; margin: 18px 0 14px; font-weight: 800; }
+    .role { font-size: clamp(18px, 2.4vw, 22px); color: var(--muted); margin: 0 0 18px; font-weight: 500; }
+    .bio { max-width: 620px; color: var(--muted); margin: 0 0 28px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 10px;
+      font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--border);
+      background: var(--surface); transition: transform .15s, border-color .15s;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: var(--muted); }
+    .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .avatar {
+      width: 200px; height: 200px; border-radius: 28px; background: var(--surface-2);
+      border: 1px solid var(--border); display: grid; place-items: center; overflow: hidden;
+      font-size: 64px; font-weight: 800; color: var(--muted); box-shadow: var(--shadow);
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    @media (max-width: 760px) {
+      .hero { padding: 56px 0 40px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+      .avatar { width: 120px; height: 120px; font-size: 40px; border-radius: 22px; order: -1; }
+    }
+
+    /* Sections */
+    section { padding: 56px 0; }
+    .sec-head { margin-bottom: 28px; }
+    .sec-head .num { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--accent); }
+    h2 { font-size: clamp(26px, 3.5vw, 32px); letter-spacing: -.02em; margin: 4px 0 6px; }
+    .sec-head p { color: var(--muted); margin: 0; }
+
+    .card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Info */
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+    .info { padding: 18px 20px; }
+    .info .label { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+    .info .value { margin-top: 4px; font-weight: 500; word-break: break-word; }
+    .info .value.empty { color: var(--muted); font-style: italic; font-weight: 400; }
+    .info .value a { text-decoration: none; color: var(--accent); }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+    .skill { padding: 20px; }
+    .skill h3 { margin: 0 0 12px; font-size: 16px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-family: "JetBrains Mono", monospace; font-size: 12.5px; padding: 3px 9px; border-radius: 6px;
+      background: var(--surface-2); border: 1px solid var(--border); color: var(--text);
+    }
+
+    /* Projects */
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    @media (max-width: 760px) { .projects { grid-template-columns: 1fr; } }
+    .project { padding: 24px; display: flex; flex-direction: column; gap: 12px; transition: border-color .15s, transform .15s; }
+    .project:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .project .top { display: flex; align-items: center; gap: 12px; }
+    .project .icon {
+      width: 42px; height: 42px; border-radius: 11px; display: grid; place-items: center;
+      background: var(--accent-soft); font-size: 20px; flex-shrink: 0;
+    }
+    .project h3 { margin: 0; font-size: 18px; letter-spacing: -.01em; }
+    .project .sub { font-size: 13px; color: var(--muted); font-family: "JetBrains Mono", monospace; }
+    .project p { margin: 0; color: var(--muted); font-size: 15px; }
+    .project ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14.5px; }
+    .project ul li { margin: 2px 0; }
+    .project .tags { margin-top: auto; padding-top: 4px; }
+    .badge {
+      font-size: 11.5px; font-weight: 600; padding: 2px 8px; border-radius: 999px;
+      background: var(--accent-soft); color: var(--accent); margin-left: auto; white-space: nowrap;
+    }
+
+    /* Contact */
+    .contact { padding: 36px; text-align: center; }
+    .contact h2 { margin-top: 0; }
+    .contact p { color: var(--muted); margin: 0 auto 22px; max-width: 520px; }
+    .contact .cta { justify-content: center; }
+
+    footer { padding: 32px 0 48px; color: var(--muted); font-size: 14px; text-align: center; }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap">
+      <a href="#top" class="brand" data-field="shortName">Portfolio</a>
+      <ul>
+        <li><a href="#about">Giới thiệu</a></li>
+        <li><a href="#skills">Kỹ năng</a></li>
+        <li><a href="#projects">Dự án</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+      </ul>
+      <button class="theme-btn" id="themeBtn" aria-label="Đổi giao diện sáng/tối">◐</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <div class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow" data-field="status">Sẵn sàng cho cơ hội mới</span>
+          <h1>Xin chào, tôi là <span data-field="fullName">Nguyễn Mạnh Tùng</span></h1>
+          <p class="role" data-field="role">Full-stack Developer · Node.js · React / Vue</p>
+          <p class="bio" data-field="bio">
+            Tôi xây dựng các hệ thống web và mobile end-to-end: từ CRM đa tài khoản Zalo, nền tảng sạc xe điện
+            với telemetry real-time qua MQTT, đến biểu đồ chứng khoán và livestream AI. Tôi quan tâm đến
+            kiến trúc rõ ràng, real-time và tích hợp thanh toán.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="#projects">Xem dự án →</a>
+            <a class="btn" href="#contact">Liên hệ</a>
+            <a class="btn" id="cvBtn" href="#" target="_blank" rel="noopener">Tải CV</a>
+          </div>
+        </div>
+        <div class="avatar" id="avatar">?</div>
+      </div>
+    </div>
+
+    <!-- ABOUT / INFO -->
+    <section id="about">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="num">01</div>
+          <h2>Thông tin cá nhân</h2>
+          <p>Một vài thông tin cơ bản về tôi.</p>
+        </div>
+        <div class="info-grid" id="infoGrid"></div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="num">02</div>
+          <h2>Kỹ năng & công nghệ</h2>
+          <p>Tổng hợp từ các dự án thực tế đã triển khai.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="card skill">
+            <h3>Backend</h3>
+            <div class="tags">
+              <span class="tag">Node.js</span><span class="tag">Fastify</span><span class="tag">Express</span>
+              <span class="tag">Prisma</span><span class="tag">Mongoose</span><span class="tag">Agenda</span>
+              <span class="tag">REST API</span><span class="tag">Webhook</span>
+            </div>
+          </div>
+          <div class="card skill">
+            <h3>Frontend</h3>
+            <div class="tags">
+              <span class="tag">React</span><span class="tag">Vue 3</span><span class="tag">Vite</span>
+              <span class="tag">Vuetify</span><span class="tag">MUI</span><span class="tag">Next.js</span>
+              <span class="tag">ECharts</span><span class="tag">KLineCharts</span><span class="tag">three.js</span>
+            </div>
+          </div>
+          <div class="card skill">
+            <h3>Mobile</h3>
+            <div class="tags">
+              <span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Capacitor</span>
+              <span class="tag">MapLibre</span><span class="tag">Push Notification</span>
+            </div>
+          </div>
+          <div class="card skill">
+            <h3>Real-time & IoT</h3>
+            <div class="tags">
+              <span class="tag">Socket.IO</span><span class="tag">WebSocket</span><span class="tag">MQTT</span>
+            </div>
+          </div>
+          <div class="card skill">
+            <h3>Database & DevOps</h3>
+            <div class="tags">
+              <span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Docker Compose</span>
+            </div>
+          </div>
+          <div class="card skill">
+            <h3>Tích hợp & khác</h3>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">vnstock</span><span class="tag">Gemini</span>
+              <span class="tag">OpenAI</span><span class="tag">VietQR</span><span class="tag">ACB API</span>
+              <span class="tag">zca-js</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="num">03</div>
+          <h2>Dự án tiêu biểu</h2>
+          <p>Các sản phẩm tôi đã và đang phát triển.</p>
+        </div>
+        <div class="projects">
+
+          <article class="card project">
+            <div class="top">
+              <div class="icon">💬</div>
+              <div>
+                <h3>ZaloCRM</h3>
+                <div class="sub">Quản lý đa tài khoản Zalo</div>
+              </div>
+            </div>
+            <p>Quản lý nhiều tài khoản Zalo cá nhân trên một giao diện web duy nhất.</p>
+            <ul>
+              <li>Chat real-time, pipeline khách hàng, lịch hẹn, dashboard</li>
+              <li>Xuất Excel, phân quyền Owner / Admin / Member</li>
+              <li>API công khai & webhook</li>
+              <li>Cơ chế chống block (giới hạn 200 tin/ngày)</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Fastify 5</span><span class="tag">Prisma 7</span><span class="tag">PostgreSQL 16</span>
+              <span class="tag">Vue 3</span><span class="tag">Vuetify</span><span class="tag">Socket.IO</span>
+              <span class="tag">zca-js</span><span class="tag">Docker Compose</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="top">
+              <div class="icon">🔌</div>
+              <div>
+                <h3>Enovo – E-Charge Safe</h3>
+                <div class="sub">Hệ thống sạc xe điện</div>
+              </div>
+            </div>
+            <p>Nền tảng quản lý trụ sạc xe điện với telemetry real-time và thanh toán tích hợp.</p>
+            <ul>
+              <li>Quản lý trụ sạc, telemetry real-time qua MQTT</li>
+              <li>Thanh toán qua ACB API & VietQR, xác minh giấy tờ</li>
+              <li>Tích hợp AI (Gemini / OpenAI)</li>
+              <li>Script Python giả lập nhiều trụ sạc để test</li>
+              <li>App mobile (bản đồ MapLibre, camera, push), Admin & Website</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Express</span><span class="tag">MongoDB</span><span class="tag">Agenda</span>
+              <span class="tag">MQTT</span><span class="tag">Socket.IO</span><span class="tag">Expo</span>
+              <span class="tag">React Native</span><span class="tag">React</span><span class="tag">MUI</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="top">
+              <div class="icon">📈</div>
+              <div>
+                <h3>LEOSTOCK</h3>
+                <div class="sub">Nền tảng chứng khoán Việt Nam</div>
+              </div>
+            </div>
+            <p>Biểu đồ nến và dữ liệu thị trường các sàn HOSE / HNX / UPCOM.</p>
+            <ul>
+              <li>Backend real-time qua WebSocket</li>
+              <li>Webapp trực quan hoá với KLineCharts, ECharts, three.js</li>
+              <li>Mobile dùng Capacitor bọc bản build web – một codebase duy nhất</li>
+              <li>Data service Python dựa trên hệ sinh thái vnstock</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Express</span><span class="tag">Mongoose</span><span class="tag">WebSocket</span>
+              <span class="tag">React</span><span class="tag">KLineCharts</span><span class="tag">ECharts</span>
+              <span class="tag">three.js</span><span class="tag">Capacitor</span><span class="tag">Python</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="top">
+              <div class="icon">🎥</div>
+              <div>
+                <h3>Slive – Live AI</h3>
+                <div class="sub">Nền tảng livestream AI</div>
+              </div>
+            </div>
+            <p>Hai gói dịch vụ "Live không người" và "Live Face", mỗi gói có bảng giá và số dư riêng.</p>
+            <ul>
+              <li>Quản lý khách hàng và phiên live</li>
+              <li>Nạp tiền, hoá đơn, số dư theo từng gói</li>
+              <li>Trang quản trị và website giới thiệu</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Express</span><span class="tag">Mongoose</span><span class="tag">WebSocket</span>
+              <span class="tag">React</span><span class="tag">MUI</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="top">
+              <div class="icon">🤝</div>
+              <div>
+                <h3>Refferq</h3>
+                <div class="sub">Hệ thống affiliate / referral</div>
+              </div>
+              <span class="badge">Đang phát triển</span>
+            </div>
+            <p>Hệ thống affiliate có quy chuẩn webhook, đang được chuyển đổi kiến trúc.</p>
+            <ul>
+              <li>Chuẩn hoá webhook cho các sự kiện affiliate</li>
+              <li>Migrate từ Next.js + Prisma sang React (Vite) + Express / Mongoose</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">React</span><span class="tag">Vite</span><span class="tag">Express</span>
+              <span class="tag">Mongoose</span><span class="tag">Next.js</span><span class="tag">Prisma</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <div class="top">
+              <div class="icon">🗂️</div>
+              <div>
+                <h3>Slink CRM</h3>
+                <div class="sub">Bản tách từ ZaloCRM</div>
+              </div>
+            </div>
+            <p>Phiên bản tách từ ZaloCRM, chuyển tầng dữ liệu sang MongoDB / Mongoose thay cho Prisma / PostgreSQL.</p>
+            <ul>
+              <li>Giữ nguyên tính năng CRM cốt lõi</li>
+              <li>Thiết kế lại data layer theo mô hình document</li>
+            </ul>
+            <div class="tags">
+              <span class="tag">Fastify</span><span class="tag">Mongoose</span><span class="tag">MongoDB</span>
+              <span class="tag">Vue 3</span><span class="tag">Vuetify</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="card contact">
+          <h2>Cùng làm việc nhé?</h2>
+          <p>Tôi luôn sẵn sàng trao đổi về dự án, cơ hội hợp tác hoặc công việc mới.</p>
+          <div class="cta" id="contactLinks"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> <span data-field="fullName">[Họ và tên]</span></div>
+  </footer>
+
+  <script>
+    // ===== Điền thông tin cá nhân tại đây. Để trống "" thì trang sẽ hiện "Đang cập nhật". =====
+    const PROFILE = {
+      fullName: "",        // VD: "Nguyễn Văn A"
+      shortName: "",       // Hiện trên thanh menu, VD: "NVA"
+      role: "",            // Bỏ trống để giữ mặc định
+      status: "",          // VD: "Sẵn sàng cho cơ hội mới"
+      bio: "",             // Bỏ trống để giữ đoạn giới thiệu mặc định
+      avatar: "",          // Đường dẫn ảnh, VD: "avatar.jpg"
+      cv: "",              // Link file CV (PDF)
+      birthday: "",
+      location: "",
+      email: "",
+      phone: "",
+      github: "",          // URL đầy đủ
+      linkedin: "",
+      facebook: "",
+      education: "",
+      experience: "",      // VD: "3 năm"
+    };
+
+    const EMPTY = "Đang cập nhật";
+
+    // Ghi đè các vùng văn bản nếu đã có giá trị
+    document.querySelectorAll("[data-field]").forEach(el => {
+      const v = PROFILE[el.dataset.field];
+      if (v) el.textContent = v;
+      else if (el.dataset.field === "fullName") el.textContent = "[Họ và tên]";
+    });
+
+    // Avatar: ảnh hoặc chữ cái đầu
+    const avatar = document.getElementById("avatar");
+    if (PROFILE.avatar) {
+      avatar.innerHTML = "";
+      const img = document.createElement("img");
+      img.src = PROFILE.avatar;
+      img.alt = PROFILE.fullName || "Avatar";
+      avatar.appendChild(img);
+    } else if (PROFILE.fullName) {
+      avatar.textContent = PROFILE.fullName.trim().split(/\s+/).pop()[0].toUpperCase();
+    }
+
+    // Nút CV
+    const cvBtn = document.getElementById("cvBtn");
+    if (PROFILE.cv) cvBtn.href = PROFILE.cv; else cvBtn.remove();
+
+    // Lưới thông tin cá nhân
+    const INFO = [
+      ["Họ và tên", "fullName"],
+      ["Ngày sinh", "birthday"],
+      ["Địa chỉ", "location"],
+      ["Email", "email", v => `mailto:${v}`],
+      ["Số điện thoại", "phone", v => `tel:${v.replace(/\s/g, "")}`],
+      ["Học vấn", "education"],
+      ["Kinh nghiệm", "experience"],
+      ["GitHub", "github", v => v],
+    ];
+    const grid = document.getElementById("infoGrid");
+    INFO.forEach(([label, key, toHref]) => {
+      const v = PROFILE[key];
+      const card = document.createElement("div");
+      card.className = "card info";
+      card.innerHTML = `<div class="label"></div><div class="value"></div>`;
+      card.querySelector(".label").textContent = label;
+      const valueEl = card.querySelector(".value");
+      if (!v) {
+        valueEl.textContent = EMPTY;
+        valueEl.classList.add("empty");
+      } else if (toHref) {
+        const a = document.createElement("a");
+        a.href = toHref(v);
+        a.textContent = v.replace(/^https?:\/\//, "");
+        if (/^https?:/.test(a.href)) { a.target = "_blank"; a.rel = "noopener"; }
+        valueEl.appendChild(a);
+      } else {
+        valueEl.textContent = v;
+      }
+      grid.appendChild(card);
+    });
+
+    // Nút liên hệ
+    const contacts = [
+      ["Email", PROFILE.email && `mailto:${PROFILE.email}`, true],
+      ["Gọi điện", PROFILE.phone && `tel:${PROFILE.phone.replace(/\s/g, "")}`],
+      ["GitHub", PROFILE.github],
+      ["LinkedIn", PROFILE.linkedin],
+      ["Facebook", PROFILE.facebook],
+    ].filter(([, href]) => href);
+    const contactLinks = document.getElementById("contactLinks");
+    if (!contacts.length) {
+      contactLinks.innerHTML = `<span class="btn" style="cursor:default">Thông tin liên hệ ${EMPTY.toLowerCase()}</span>`;
+    }
+    contacts.forEach(([label, href, primary]) => {
+      const a = document.createElement("a");
+      a.className = "btn" + (primary ? " primary" : "");
+      a.href = href;
+      a.textContent = label;
+      if (/^https?:/.test(href)) { a.target = "_blank"; a.rel = "noopener"; }
+      contactLinks.appendChild(a);
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    if (PROFILE.fullName) document.title = `${PROFILE.fullName} – Portfolio`;
+
+    // Đổi theme sáng/tối (nhớ lựa chọn)
+    const root = document.documentElement;
+    try {
+      const saved = localStorage.getItem("theme");
+      if (saved) root.dataset.theme = saved;
+    } catch (e) {}
+    document.getElementById("themeBtn").addEventListener("click", () => {
+      const isDark = root.dataset.theme
+        ? root.dataset.theme === "dark"
+        : matchMedia("(prefers-color-scheme: dark)").matches;
+      root.dataset.theme = isDark ? "light" : "dark";
+      try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+    });
+  </script>
+</body>
+</html>
